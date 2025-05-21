@@ -27,7 +27,7 @@ jobs:
       #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Debug Print bucket secret is set
-      - run: |
+        run: |
           echo "R2_BUCKET >>> ${{ secrets.R2_BUCKET_NAME }}"
           echo "R2_ENDPOINT >>> ${{ secrets.R2_ENDPOINT }}"
           echo "R2_ACCESS_KEY_ID >>> ${{ secrets.R2_ACCESS_KEY_ID }}"
