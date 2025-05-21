@@ -26,6 +26,13 @@ jobs:
       #     AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
       #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
+      - name: Debug Print bucket secret is set
+      - run: |
+          echo "R2_BUCKET >>> ${{ secrets.R2_BUCKET_NAME }}"
+          echo "R2_ENDPOINT >>> ${{ secrets.R2_ENDPOINT }}"
+          echo "R2_ACCESS_KEY_ID >>> ${{ secrets.R2_ACCESS_KEY_ID }}"
+          echo "R2_SECRET_ACCESS_KEY >>> ${{ secrets.R2_SECRET_ACCESS_KEY }}"
+
       - uses: shinyinc/action-aws-cli@v1.2
       - run: aws s3 sync dist s3://${{ secrets.R2_BUCKET_NAME }}/container/latest --endpoint-url=${{ secrets.R2_ENDPOINT }}
         env:
